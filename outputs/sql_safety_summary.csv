@@ -1,0 +1,11 @@
+test_id,sql,expected,actual,pass_fail
+1,"SELECT * FROM stores",Allowed,"Allowed",PASS
+2,"INSERT INTO stores (store_id, city) VALUES (""S1"", ""City"")",Blocked,"ValueError: Only SELECT statements are allowed; forbidden SQL keywords were detected.",PASS
+3,"UPDATE stores SET city = ""Delhi"" WHERE store_id = ""S1""",Blocked,"ValueError: Only SELECT statements are allowed; forbidden SQL keywords were detected.",PASS
+4,"DELETE FROM stores WHERE store_id = ""S1""",Blocked,"ValueError: Only SELECT statements are allowed; forbidden SQL keywords were detected.",PASS
+5,"DROP TABLE stores",Blocked,"ValueError: Only SELECT statements are allowed; forbidden SQL keywords were detected.",PASS
+6,"ALTER TABLE stores ADD COLUMN region_code VARCHAR(10)",Blocked,"ValueError: Only SELECT statements are allowed; forbidden SQL keywords were detected.",PASS
+7,"TRUNCATE TABLE stores",Blocked,"ValueError: Only SELECT statements are allowed; forbidden SQL keywords were detected.",PASS
+8,"CREATE TABLE test (id INT)",Blocked,"ValueError: Only SELECT statements are allowed; forbidden SQL keywords were detected.",PASS
+9,"REPLACE INTO stores (store_id, city) VALUES (""S1"", ""City"")",Blocked,"ValueError: Only SELECT statements are allowed; forbidden SQL keywords were detected.",PASS
+10,"SELECT * FROM stores; DROP TABLE stores",Blocked,"ValueError: Multiple SQL statements are not allowed.",PASS

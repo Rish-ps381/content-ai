@@ -1,0 +1,6 @@
+langgraph
+mysql-connector-python
+pandas
+python-dotenv
+pytest
+requests
